@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <script>
+      function computerPlay() {
+        let random = parseInt(randomNumber(4,1)); // this will return 1 2 or 3
+        switch (random) {  // will randomly return either rock, paper, or scissors
+          case 1:
+          console.log('Computer: rock');
+            return 'rock';
+          case 2: 
+            console.log('Computer: paper');
+            return 'paper';
+          case 3: 
+            console.log('Computer: scissors');
+            return 'scissors';
+          default:
+            console.log('Error');
+        }
+      }
+      function randomNumber(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+      function singleRound(playerSelection, computerSelection) {
+        if (playerSelection === 'rock') {     // play a single round of rock paper scissors
+            if (computerSelection === 'rock') {
+              return 'Tie';
+            }
+            else if (computerSelection === 'paper') {
+              return 'Computer';
+            }
+            else if (computerSelection === 'scissors') {      
+              return 'User';
+          }
+        }
+        else if (playerSelection === 'paper') {
+            if (computerSelection === 'rock') {
+              return 'User';
+            }
+            else if (computerSelection === 'paper') {
+              return 'Tie';
+            }
+            else if(computerSelection === 'scissors') {
+              return 'Computer';
+            }
+        }
+        else if (playerSelection === 'scissors') {
+            if (computerSelection === 'rock') {
+              return 'Computer';
+            }
+            else if (computerSelection === 'paper') {
+              return 'User';
+            }
+            else if (computerSelection === 'scissors') {
+              return 'Tie';
+            }
+          }
+      }
+      function player() {
+        var selection = prompt("Choose from Rock, Paper, or Scissors"); // ask the player to make a selection
+        selection = selection.toLowerCase();
+        switch (selection) {  // return player selection
+          case 'rock':
+            console.log('User: rock');
+            return selection;
+            break;
+          case 'paper':
+            console.log('User: paper');
+            return selection;
+            break;
+          case 'scissors':
+          console.log('User: scissors');
+            return selection;
+            break;
+          default:
+            console.log('error');
+        }
+      }
+      function game() {
+        let computer = 0;
+        let user= 0;
+        for (let round = 0; round < 5; round++) {
+          let winner = singleRound(player(), computerPlay());
+          console.log(winner);
+          if (winner === 'Computer') {
+            computer++;
+          }
+          else if (winner === 'User') {
+            user++;
+          }
+        }
+        console.log('Computer:',computer);
+        console.log('User:',user);
+        if (user > computer) {
+          console.log('User Wins!');
+        }
+        else if (computer > user) {
+          console.log('Computer Wins!');
+        }
+        else {
+          console.log('Tie');
+        }
+      }
+      game();
+    </script>
+  </body>
+</html>
