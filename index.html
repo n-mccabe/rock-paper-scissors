@@ -12,9 +12,11 @@
       </div>
       <div id="results"></div>
       <script>
-        
+        //global variables
+        let userPoints = 0;
+        let computerPoints = 0;
+
         document.getElementById("results").style.border = "12px solid black";
-        
         // window.getElementById("rock").addEventListener("click", player);
         document.getElementById("rock").addEventListener("click", function(){
           //call to the function, store results with user choice in the variable
@@ -29,8 +31,11 @@
           rockResults.textContent = displayResults;
           // append new div to results
           results.appendChild(rockResults);
+          // call to scoreboard function
+          scoreboard(displayResults);
+          console.log('User:',userPoints);
+          console.log('Computer:', computerPoints);
         });
-
         document.getElementById("paper").addEventListener("click", function(){
           //call to the function, store results with user choice in the variable
           let displayResults = singleRound("paper", computerPlay());
@@ -44,8 +49,11 @@
           paperResults.textContent = displayResults;
           // append new div to results
           results.appendChild(paperResults);
-    });
-
+          // call to scoreboard function
+          scoreboard(displayResults);
+          console.log('User:',userPoints);
+          console.log('Computer:', computerPoints);
+        });
         document.getElementById("scissors").addEventListener("click", function(){
           //call to the function, store results with user choice in the variable
           let displayResults = singleRound("scissors", computerPlay());
@@ -59,9 +67,34 @@
           scissorsResults.textContent = displayResults;
           // append new div to results
           results.appendChild(scissorsResults);
+          // call to scoreboard function
+          scoreboard(displayResults);
+          console.log('User:',userPoints);
+          console.log('Computer:', computerPoints);
         });
-
-
+        function scoreboard(displayResults) {
+        // will accept displayResults as the parameter
+          switch(displayResults) {
+            case 'Tie!' :
+              break;
+            case 'User Wins!':
+              userPoints++;
+              if (userPoints == 5) {
+                computerPoints === 0;
+                userPoints === 0;
+                alert('User Wins!');
+              }
+              break;
+            case 'Computer Wins!':
+              computerPoints++;
+              if (computerPoints == 5) {
+                computerPoints = 0;
+                userPoints = 0;
+                alert('Computer Wins!');
+              }
+              break;
+          }
+        }
         function computerPlay() {
           let random = parseInt(randomNumber(4,1)); // this will return 1 2 or 3
           switch (random) {  // will randomly return either rock, paper, or scissors
@@ -126,28 +159,8 @@
             }
         }
         function player(selection) {
-          /* var selection = prompt("Choose from Rock, Paper, or Scissors"); // ask the player to make a selection
-          selection = selection.toLowerCase();
-          switch (selection) {  // return player selection
-            case 'rock':
-              console.log('User: rock');
-              return selection;
-              break;
-            case 'paper':
-              console.log('User: paper');
-              return selection;
-              break;
-            case 'scissors':
-            console.log('User: scissors');
-              return selection;
-              break;
-            default:
-              console.log('error');
-          } */
             return selection;
         }
-
-
         /* function game() {
           let computer = 0;
           let user= 0;
@@ -174,10 +187,6 @@
           }
         }
         */
-
-
-        // singleRound(player(), computerPlay());
-
       </script>
   </body>
 </html>
