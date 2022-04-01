@@ -10,19 +10,58 @@
         <button id="paper">Paper</button>
         <button id="scissors">Scissors</button>
       </div>
+      <div id="results"></div>
       <script>
-
+        
+        document.getElementById("results").style.border = "12px solid black";
+        
         // window.getElementById("rock").addEventListener("click", player);
         document.getElementById("rock").addEventListener("click", function(){
-          console.log(singleRound("rock", computerPlay()))});
+          //call to the function, store results with user choice in the variable
+          let displayResults = singleRound("rock", computerPlay());
+          // create a reference to the results div that already exists
+          let results = document.querySelector('#results');
+          // create a new div 
+          let rockResults = document.createElement('div');
+          // add a class to the div 
+          rockResults.classList.add('rockResults');
+          //store the variable displayResults
+          rockResults.textContent = displayResults;
+          // append new div to results
+          results.appendChild(rockResults);
+        });
 
         document.getElementById("paper").addEventListener("click", function(){
-        console.log(singleRound("paper", computerPlay()))});
+          //call to the function, store results with user choice in the variable
+          let displayResults = singleRound("paper", computerPlay());
+          // create a reference to the results div that already exists
+          let results = document.querySelector('#results');
+          // create a new div 
+          let paperResults = document.createElement('div');
+          // add a class to the div 
+          paperResults.classList.add('paperResults');
+          //store the variable displayResults
+          paperResults.textContent = displayResults;
+          // append new div to results
+          results.appendChild(paperResults);
+    });
 
         document.getElementById("scissors").addEventListener("click", function(){
-        console.log(singleRound("scissors", computerPlay()))});
+          //call to the function, store results with user choice in the variable
+          let displayResults = singleRound("scissors", computerPlay());
+          // create a reference to the results div that already exists
+          let results = document.querySelector('#results');
+          // create a new div 
+          let scissorsResults = document.createElement('div');
+          // add a class to the div 
+          scissorsResults.classList.add('scissorsResults');
+          //store the variable displayResults
+          scissorsResults.textContent = displayResults;
+          // append new div to results
+          results.appendChild(scissorsResults);
+        });
 
-        
+
         function computerPlay() {
           let random = parseInt(randomNumber(4,1)); // this will return 1 2 or 3
           switch (random) {  // will randomly return either rock, paper, or scissors
@@ -45,44 +84,44 @@
         function singleRound(playerSelection, computerSelection) {
           if (playerSelection === 'rock') {     // play a single round of rock paper scissors
               if (computerSelection === 'rock') {
-                // return 'Tie';
-                alert('Tie');
+                return 'Tie!';
+                // alert('Tie');
               }
               else if (computerSelection === 'paper') {
-                // return 'Computer';
-                alert('Computer Wins');
+                return 'Computer Wins!';
+                // alert('Computer Wins');
               }
               else if (computerSelection === 'scissors') {      
-                // return 'User';
-                alert('User Wins');
+                return 'User Wins!';
+                // alert('User Wins');
             }
           }
           else if (playerSelection === 'paper') {
               if (computerSelection === 'rock') {
-                // return 'User';
-                alert('User Wins');
+                return 'User Wins!';
+                // alert('User Wins');
               }
               else if (computerSelection === 'paper') {
-                // return 'Tie';
-                alert('Tie');
+                return 'Tie!';
+                // alert('Tie');
               }
               else if(computerSelection === 'scissors') {
-                // return 'Computer';
-                alert('Computer');
+                return 'Computer Wins!';
+                // alert('Computer');
               }
           }
           else if (playerSelection === 'scissors') {
               if (computerSelection === 'rock') {
-                // return 'Computer';
-                alert('Computer Wins');
+                return 'Computer Wins!';
+                // alert('Computer Wins');
             }
               else if (computerSelection === 'paper') {
-                // return 'User';
-                alert('User Wins');
+                return 'User Wins!';
+                // alert('User Wins');
               }
               else if (computerSelection === 'scissors') {
-                // return 'Tie';
-                alert('Tie');
+                return 'Tie';
+                // alert('Tie');
               }
             }
         }
@@ -105,7 +144,6 @@
             default:
               console.log('error');
           } */
-            console.log(selection);
             return selection;
         }
 
