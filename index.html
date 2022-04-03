@@ -31,10 +31,29 @@
           rockResults.textContent = displayResults;
           // append new div to results
           results.appendChild(rockResults);
+
           // call to scoreboard function
           scoreboard(displayResults);
-          console.log('User:',userPoints);
-          console.log('Computer:', computerPoints);
+          // create a new div to display the user points
+          let userTotalPoints = document.createElement('div');
+          // add a class to the div
+          userTotalPoints.classList.add('userTotalPoints');
+          // store the variable userPoints
+          userTotalPoints.textContent = (`User: ${userPoints}`);
+          // append new div to results
+          results.appendChild(userTotalPoints);
+          
+          // create a new div to display the computer points
+          let computerTotalPoints = document.createElement('div');
+          // add a class to the div
+          computerTotalPoints = document.createElement('div');
+          // store the variable computerPoints
+          computerTotalPoints.textContent = (`Computer: ${computerPoints}`);
+          // append new div to results
+          results.appendChild(computerTotalPoints);
+
+          // console.log('User:',userPoints);
+          // console.log('Computer:', computerPoints);
         });
         document.getElementById("paper").addEventListener("click", function(){
           //call to the function, store results with user choice in the variable
@@ -49,10 +68,31 @@
           paperResults.textContent = displayResults;
           // append new div to results
           results.appendChild(paperResults);
+
           // call to scoreboard function
           scoreboard(displayResults);
-          console.log('User:',userPoints);
-          console.log('Computer:', computerPoints);
+          // create a new div to display the user points
+          let userTotalPoints = document.createElement('div');
+          // add a class to the div
+          userTotalPoints.classList.add('userTotalPoints');
+          // store the variable userPoints
+          userTotalPoints.textContent = (`User: ${userPoints}`);
+          // append new div to results
+
+
+          results.appendChild(userTotalPoints);
+          
+          // create a new div to display the computer points
+          let computerTotalPoints = document.createElement('div');
+          // add a class to the div
+          computerTotalPoints = document.createElement('div');
+          // store the variable computerPoints
+          computerTotalPoints.textContent = (`Computer: ${computerPoints}`);
+          // append new div to results
+          results.appendChild(computerTotalPoints);
+
+          // console.log('User:',userPoints);
+          // console.log('Computer:', computerPoints);
         });
         document.getElementById("scissors").addEventListener("click", function(){
           //call to the function, store results with user choice in the variable
@@ -69,8 +109,27 @@
           results.appendChild(scissorsResults);
           // call to scoreboard function
           scoreboard(displayResults);
-          console.log('User:',userPoints);
-          console.log('Computer:', computerPoints);
+
+          // create a new div to display the user points
+          let userTotalPoints = document.createElement('div');
+          // add a class to the div
+          userTotalPoints.classList.add('userTotalPoints');
+          // store the variable userPoints
+          userTotalPoints.textContent = (`User: ${userPoints}`);
+          // append new div to results
+          results.appendChild(userTotalPoints);
+          
+          // create a new div to display the computer points
+          let computerTotalPoints = document.createElement('div');
+          // add a class to the div
+          computerTotalPoints = document.createElement('div');
+          // store the variable computerPoints
+          computerTotalPoints.textContent = (`Computer: ${computerPoints}`);
+          // append new div to results
+          results.appendChild(computerTotalPoints);
+
+          // console.log('User:',userPoints);
+          // console.log('Computer:', computerPoints);
         });
         function scoreboard(displayResults) {
         // will accept displayResults as the parameter
@@ -80,8 +139,8 @@
             case 'User Wins!':
               userPoints++;
               if (userPoints == 5) {
-                computerPoints === 0;
-                userPoints === 0;
+                computerPoints = 0;
+                userPoints = 0;
                 alert('User Wins!');
               }
               break;
