@@ -4,20 +4,27 @@
     <meta charset="UTF-8">
     <title>Rock Paper Scissors</title>
   </head>
-  <body>
-      <div>
+  <body style='background-color: rgb(119, 36, 5);'>
+      <div id="choices">
         <button id="rock">Rock</button>
         <button id="paper">Paper</button>
         <button id="scissors">Scissors</button>
       </div>
-      <div id="results"></div>
+      <div id="results" style="height: 21px; width: auto; padding: 50px; margin: 300px 200px 100px 200px;"></div>
       <script>
         //global variables
         let userPoints = 0;
         let computerPoints = 0;
 
-        document.getElementById("results").style.border = "12px solid black";
-        // window.getElementById("rock").addEventListener("click", player);
+        // user selection design
+        document.getElementById("choices").setAttribute( "style", "border: 3px solid black; padding: 50px; margin: 100px 200px 100px 200px");
+        document.getElementById("choices").setAttribute("align", "center");
+        
+        //border
+        document.getElementById("results").style.border = "3px solid black";
+        
+
+        // click on rock
         document.getElementById("rock").addEventListener("click", function(){
           //call to the function, store results with user choice in the variable
           let displayResults = singleRound("rock", computerPlay());
@@ -51,10 +58,9 @@
           computerTotalPoints.textContent = (`Computer: ${computerPoints}`);
           // append new div to results
           results.appendChild(computerTotalPoints);
-
-          // console.log('User:',userPoints);
-          // console.log('Computer:', computerPoints);
         });
+
+        // click on paper
         document.getElementById("paper").addEventListener("click", function(){
           //call to the function, store results with user choice in the variable
           let displayResults = singleRound("paper", computerPlay());
