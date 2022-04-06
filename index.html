@@ -19,14 +19,13 @@
         // user selection design
         document.getElementById("choices").setAttribute( "style", "border: 3px solid black; padding: 50px; margin: 100px 200px 100px 200px");
         document.getElementById("choices").setAttribute("align", "center");
-        
-        //border
         document.getElementById("results").style.border = "3px solid black";
         document.getElementById("results").style.flexWrap = "wrap";
-        // document.getElementById("results").style.alignContent = "flex-start";
 
         // click on rock
         document.getElementById("rock").addEventListener("click", function(){
+
+          //
           //call to the function, store results with user choice in the variable
           let displayResults = singleRound("rock", computerPlay());
           // create a reference to the results div that already exists
@@ -39,7 +38,9 @@
           rockResults.textContent = displayResults;
           // append new div to results
           results.appendChild(rockResults);
+          //
 
+          //
           // call to scoreboard function
           scoreboard(displayResults);
           // create a new div to display the user points
@@ -50,6 +51,7 @@
           userTotalPoints.textContent = (`User: ${userPoints}`);
           // append new div to results
           results.appendChild(userTotalPoints);
+          //
           
           // create a new div to display the computer points
           let computerTotalPoints = document.createElement('div');
@@ -59,10 +61,12 @@
           computerTotalPoints.textContent = (`Computer: ${computerPoints}`);
           // append new div to results
           results.appendChild(computerTotalPoints);
+          //
         });
 
         // click on paper
         document.getElementById("paper").addEventListener("click", function(){
+          //
           //call to the function, store results with user choice in the variable
           let displayResults = singleRound("paper", computerPlay());
           // create a reference to the results div that already exists
@@ -75,7 +79,9 @@
           paperResults.textContent = displayResults;
           // append new div to results
           results.appendChild(paperResults);
+          //
 
+          //
           // call to scoreboard function
           scoreboard(displayResults);
           // create a new div to display the user points
@@ -85,10 +91,10 @@
           // store the variable userPoints
           userTotalPoints.textContent = (`User: ${userPoints}`);
           // append new div to results
-
-
           results.appendChild(userTotalPoints);
+          //
           
+          //
           // create a new div to display the computer points
           let computerTotalPoints = document.createElement('div');
           // add a class to the div
@@ -97,11 +103,12 @@
           computerTotalPoints.textContent = (`Computer: ${computerPoints}`);
           // append new div to results
           results.appendChild(computerTotalPoints);
-
-          // console.log('User:',userPoints);
-          // console.log('Computer:', computerPoints);
+          //
         });
+
+        // click on scissors
         document.getElementById("scissors").addEventListener("click", function(){
+          //
           //call to the function, store results with user choice in the variable
           let displayResults = singleRound("scissors", computerPlay());
           // create a reference to the results div that already exists
@@ -114,9 +121,10 @@
           scissorsResults.textContent = displayResults;
           // append new div to results
           results.appendChild(scissorsResults);
+
+          //
           // call to scoreboard function
           scoreboard(displayResults);
-
           // create a new div to display the user points
           let userTotalPoints = document.createElement('div');
           // add a class to the div
@@ -125,7 +133,9 @@
           userTotalPoints.textContent = (`User: ${userPoints}`);
           // append new div to results
           results.appendChild(userTotalPoints);
-          
+          //
+
+          //
           // create a new div to display the computer points
           let computerTotalPoints = document.createElement('div');
           // add a class to the div
@@ -134,9 +144,7 @@
           computerTotalPoints.textContent = (`Computer: ${computerPoints}`);
           // append new div to results
           results.appendChild(computerTotalPoints);
-
-          // console.log('User:',userPoints);
-          // console.log('Computer:', computerPoints);
+          //
         });
 
         // this function displays the user results
