@@ -138,6 +138,9 @@
           // console.log('User:',userPoints);
           // console.log('Computer:', computerPoints);
         });
+
+        // this function displays the user results
+        // this function will reset the computer and user score to 0 if there is a winner
         function scoreboard(displayResults) {
         // will accept displayResults as the parameter
           switch(displayResults) {
@@ -161,6 +164,8 @@
               break;
           }
         }
+
+        // this function will simulate the computer playing 1 turn
         function computerPlay() {
           let random = parseInt(randomNumber(4,1)); // this will return 1 2 or 3
           switch (random) {  // will randomly return either rock, paper, or scissors
@@ -177,9 +182,15 @@
               console.log('Error');
           }
         }
+
+        // this functon will generate a random number, inbetwen two declared numbers
         function randomNumber(min, max) {
           return Math.random() * (max - min) + min;
-        }
+        } 
+
+        // this functon will play a single round of rock paper scissors,
+        // using the result of playerSelection and computerSelection 
+        // to compare
         function singleRound(playerSelection, computerSelection) {
           if (playerSelection === 'rock') {     // play a single round of rock paper scissors
               if (computerSelection === 'rock') {
@@ -224,35 +235,7 @@
               }
             }
         }
-        function player(selection) {
-            return selection;
-        }
-        /* function game() {
-          let computer = 0;
-          let user= 0;
-          for (let round = 0; round < 5; round++) {
-            let winner = singleRound(player(), computerPlay());
-            console.log(winner);
-            if (winner === 'Computer') {
-              computer++;
-            }
-            else if (winner === 'User') {
-              user++;
-            }
-          }
-          console.log('Computer:',computer);
-          console.log('User:',user);
-          if (user > computer) {
-            console.log('User Wins!');
-          }
-          else if (computer > user) {
-            console.log('Computer Wins!');
-          }
-          else {
-            console.log('Tie');
-          }
-        }
-        */
+
       </script>
   </body>
 </html>
